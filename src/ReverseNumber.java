@@ -1,3 +1,8 @@
+/*Program to reverse
+ * a number taken as
+ * input from user
+ * */
+
 import java.util.*;
 import java.math.*;
 public class ReverseNumber {
