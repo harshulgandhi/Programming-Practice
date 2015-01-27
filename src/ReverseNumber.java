@@ -15,11 +15,9 @@ public static void main(String []args){
 	int num_length;
 	num_length = String.valueOf(num).length();
 	int num_reverse = 0;
-	//System.out.println("Length : "+num_length);
+	
 	for (int i = num_length;i>0;i--){
-		
 		int temp = num/(int)Math.pow(10, i-1);
-		//System.out.println("10^(i-1) : "+(int)Math.pow(10, i-1));
 		num = num%(int)Math.pow(10, i-1);
 		num_reverse= num_reverse + temp*((int)Math.pow(10, num_length-i));
 	}
