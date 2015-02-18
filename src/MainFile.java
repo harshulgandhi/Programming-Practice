@@ -3,8 +3,8 @@ public class MainFile {
 public static void main(String[] args){
 	BinarySearch bs = new BinarySearch();
 	bs.getInputList();
-	bs.sortList();
+	bs.sortList(bs.numList);
 	bs.getElementToFind();
-	bs.findElement();
+	bs.findElement(0,bs.numOfElements);
 }
 }
