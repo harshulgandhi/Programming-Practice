@@ -6,5 +6,6 @@ public static void main(String[] args){
 	bs.sortList(bs.numList);
 	bs.getElementToFind();
 	bs.findElement(0,bs.numOfElements);
+	
 }
 }
