@@ -62,14 +62,28 @@ public class CrossWord {
 		int lenQuery = query.length();
 		for (int i = 0;i<R;i++){
 			//for(int j=0;j<mat[i].length()-lenQuery+1;j++){
-			if(mat[i].contains(query)){
+			if(mat[i].contains(query)){			//searches for query LEFT TO RIGHT
+				return true;
+			}
+			else if(mat[i].contains(reverse(query))){		//searches for query RIGHT TO LEFT
 				return true;
 			}
 			//}
 		}
-		return true;
+		return false;
 	}
 	
+	public String reverse(String str){
+		int len=str.length();
+		char[] strChar = str.toCharArray();
+		for (int front=0, rear=len; (front+1 != rear && front != rear) ;front++,rear--){
+			char temp=strChar[front];
+			strChar[front] = strChar[rear];
+			strChar[rear] = temp;
+		}
+		
+		return strChar.toString();
+	}
 	
 	
 }
