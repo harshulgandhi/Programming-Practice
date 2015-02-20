@@ -7,6 +7,10 @@ public class ComparableMethods {
 		return x.compareTo(y)<0;		
 	}
 	
+	public static boolean equalTO(Comparable x, Comparable y){
+		return x.compareTo(y)==0;		
+	}
+	
 	public static void exch(ArrayList<Comparable> a, int m, int n){
 		Comparable temp = a.get(m);
 		a.set(m, a.get(n));
