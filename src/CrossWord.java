@@ -45,14 +45,14 @@ public class CrossWord {
 				System.out.println("FOUND");
 				break;
 			}
-			else if(searchDiagonal1(query,mat)){
+			/*else if(searchDiagonal1(query,mat)){
 				System.out.println("FOUND");
 				break;
 			}
 			else if(searchDiagonal2(query,mat)){
 				System.out.println("FOUND");
 				break;
-			}
+			}*/
 			else 
 				System.out.println("NOT FOUND");
 		}
