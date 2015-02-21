@@ -73,6 +73,27 @@ public class CrossWord {
 		return false;
 	}
 	
+	public boolean searchVertical(String query, String[] mat){
+		int lenQuery = query.length();
+		String temp="";
+		for (int i = 0;i<C;i++){
+			for(int j=0;j<R;j++){
+				temp+= temp + mat[i].charAt(j);
+			}
+			if(temp.contains(query)){			//searches for query LEFT TO RIGHT
+				return true;
+			}
+			else if(temp.contains(reverse(query))){		//searches for query RIGHT TO LEFT
+				return true;
+			}
+			//}
+		}
+		return false;
+	}
+	
+	
+	
+	
 	public String reverse(String str){
 		int len=str.length();
 		char[] strChar = str.toCharArray();
