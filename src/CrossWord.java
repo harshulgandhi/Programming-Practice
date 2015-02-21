@@ -34,16 +34,16 @@ public class CrossWord {
 		Scanner sn = new Scanner(System.in);
 		System.out.println("Enter number of strings you are planning to check:");
 		numQuery = sn.nextInt();
-		for(int i=0;i<numQuery;i++){
+		for(int i=0;i<=numQuery;i++){
 			query = sn.next();
 			//Call the function to search the string here.
 			if(searchHorizontal(query,mat)){
 				System.out.println("FOUND");
-				break;
+				continue;
 			}
 			else if(searchVertical(query,mat)){
 				System.out.println("FOUND");
-				break;
+				continue;
 			}
 			/*else if(searchDiagonal1(query,mat)){
 				System.out.println("FOUND");
@@ -78,15 +78,16 @@ public class CrossWord {
 		String temp="";
 		for (int i = 0;i<C;i++){
 			for(int j=0;j<R;j++){
-				temp+= temp + mat[i].charAt(j);
+				temp+= mat[j].charAt(i);
 			}
-			if(temp.contains(query)){			//searches for query LEFT TO RIGHT
+			if(temp.contains(query)){			//searches for query TOP TO BOTTOM
 				return true;
 			}
-			else if(temp.contains(reverse(query))){		//searches for query RIGHT TO LEFT
+			else if(temp.contains(reverse(query))){		//searches for query BOTTOM to TOP
 				return true;
 			}
 			//}
+			temp="";
 		}
 		return false;
 	}
@@ -97,13 +98,13 @@ public class CrossWord {
 	public String reverse(String str){
 		int len=str.length();
 		char[] strChar = str.toCharArray();
-		for (int front=0, rear=len; (front+1 != rear && front != rear) ;front++,rear--){
+		for (int front=0, rear=len-1; (front+1 != rear && front != rear) ;front++,rear--){
 			char temp=strChar[front];
 			strChar[front] = strChar[rear];
 			strChar[rear] = temp;
 		}
-		
-		return strChar.toString();
+		String b = new String(strChar);
+		return b;
 	}
 	
 	
