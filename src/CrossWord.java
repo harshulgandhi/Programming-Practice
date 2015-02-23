@@ -98,10 +98,17 @@ public class CrossWord {
 	public String reverse(String str){
 		int len=str.length();
 		char[] strChar = str.toCharArray();
-		for (int front=0, rear=len-1; (front+1 != rear && front != rear) ;front++,rear--){
-			char temp=strChar[front];
-			strChar[front] = strChar[rear];
-			strChar[rear] = temp;
+		if(len>2){
+			for (int front=0, rear=len-1; (front+1 != rear && front != rear) ;front++,rear--){
+				char temp=strChar[front];
+				strChar[front] = strChar[rear];
+				strChar[rear] = temp;
+			}
+		}
+		else{
+			char temp=strChar[0];
+			strChar[0] = strChar[1];
+			strChar[1] = temp;
 		}
 		String b = new String(strChar);
 		return b;
