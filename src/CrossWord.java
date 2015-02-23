@@ -45,14 +45,14 @@ public class CrossWord {
 				System.out.println("FOUND");
 				continue;
 			}
-			/*else if(searchDiagonal1(query,mat)){
+			else if(searchDiagonal1(query,mat)){
 				System.out.println("FOUND");
-				break;
+				continue;
 			}
 			else if(searchDiagonal2(query,mat)){
 				System.out.println("FOUND");
-				break;
-			}*/
+				continue;
+			}
 			else 
 				System.out.println("NOT FOUND");
 		}
@@ -68,7 +68,6 @@ public class CrossWord {
 			else if(mat[i].contains(reverse(query))){		//searches for query RIGHT TO LEFT
 				return true;
 			}
-			//}
 		}
 		return false;
 	}
@@ -86,7 +85,6 @@ public class CrossWord {
 			else if(temp.contains(reverse(query))){		//searches for query BOTTOM to TOP
 				return true;
 			}
-			//}
 			temp="";
 		}
 		return false;
@@ -94,6 +92,84 @@ public class CrossWord {
 	
 	
 	
+	public boolean searchDiagonal1(String query,String[] mat){
+		String temp="";
+		for (int i=0,j = 0;j<C;j++){
+			int diag = i;
+			int diagcol = j;
+			//int j = 0;
+			while(diag<R && diagcol<C){
+				temp+=mat[diag].charAt(diagcol);
+				diag++;
+				diagcol++;
+			}
+			if(temp.contains(query)){
+				return true;
+			}
+			else if(temp.contains(reverse(query))){
+				return true;
+			}
+			temp="";
+			
+		}
+		for (int i=1;i<R;i++){
+			int j = 0;
+			int diag = i;
+			while(diag<R && j<C){
+				temp+=mat[diag].charAt(j);
+				diag++;
+				j++;
+			}
+			if(temp.contains(query)){
+				return true;
+			}
+			else if(temp.contains(reverse(query))){
+				return true;
+			}
+			temp="";
+		}
+		return false;
+	}
+	
+
+	public boolean searchDiagonal2(String query,String[] mat){
+		String temp="";
+		for (int i=0,j = C-1;j>=0;j--){
+			int diag = i;
+			int diagcol = j;
+			while(diag<R && diagcol>=0){
+				temp+=mat[diag].charAt(diagcol);
+				diag++;
+				diagcol--;
+			}
+			if(temp.contains(query)){
+				return true;
+			}
+			else if(temp.contains(reverse(query))){
+				return true;
+			}
+			temp="";
+			
+		}
+		for (int i=1;i<R;i++){
+			int j = C-1;
+			int diag = i;
+			while(diag<R && j>=0){
+				temp+=mat[diag].charAt(j);
+				diag++;
+				j--;
+			}
+			if(temp.contains(query)){
+				return true;
+			}
+			else if(temp.contains(reverse(query))){
+				return true;
+			}
+			temp="";
+		}
+		return false;
+	}
+
 	
 	public String reverse(String str){
 		int len=str.length();
@@ -104,6 +180,9 @@ public class CrossWord {
 				strChar[front] = strChar[rear];
 				strChar[rear] = temp;
 			}
+		}
+		else if(len==1){
+			return str;
 		}
 		else{
 			char temp=strChar[0];
