@@ -30,8 +30,8 @@ public class Land {
 	
 	
 	public boolean checkForTree(int x1, int y1, int x2, int y2){
-		for(int i = 0;i<x2;i++){
-			for(int j=0;j<y2;j++){
+		for(int i = 0;x1+i<x2;i++){
+			for(int j=0;y1+j<y2;j++){
 				if(land[x1+i][y1+j] == 1){return true;}
 			}
 		}
@@ -43,26 +43,30 @@ public class Land {
 	 * Traversing the land to find largest square without tree 
 	 * */
 	public int process(int N){
+		int largestLand = 0;
 		for(int i = N-1;i>1;i--){
-			System.out.println("i = "+i);
+			//System.out.println("i = "+i);
 			int h=0,v=0;
 			int x1=0,y1=0,x2=i,y2=i;
 			while(x2+v<N){
 				x1=x1+v;
 				x2=x2+v;
 				while(y2+h<N){
-					System.out.println("Looking at square : "+x1+"-"+y1+"-"+x2+"-"+y2);
+					//System.out.println("Looking at square : "+x1+"-"+(y1+h)+"-"+x2+"-"+(y2+h));
 					if(!checkForTree(x1,y1+h,x2,y2+h)){
-						System.out.println("Land without tree found, size is: ");
-						return y2+h-y1;
+						System.out.println("Land without tree found, size is: "+((y2+h)-(y1+h)));
+						if(((y2+h)-(y1+h))>largestLand){largestLand=((y2+h)-(y1+h));}
+						
 					}
 					h++;
 				}
+				y2=i;
+				h=0;
 				v++;				
 			}
 		}
 		
-		return 0;
+		return largestLand;
 	}
 	
 	
