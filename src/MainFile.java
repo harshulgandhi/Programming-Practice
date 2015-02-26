@@ -16,7 +16,13 @@ public static void main(String[] args){
 	/**
 	 * Cross word puzzle solution
 	 */
-	CrossWord cw = new CrossWord();
-	cw.inputQuery();
+	/*CrossWord cw = new CrossWord();
+	cw.inputQuery();*/
+	
+	/*
+	 * Land-tree problem
+	 * */
+	Land l = new Land();
+	l.input();
 }
 }
