@@ -5,7 +5,15 @@ import java.math.*;
 import java.util.regex.*;
 public class LonelyInteger {
 	   static int lonelyinteger(int[] a) {
-		   
+		  int[] a_const = new int[101];
+		  for (int i = 0;i<a.length;i++){
+			  a_const[a[i]]++;
+		  }
+		  for(int i = 0;i<101;i++){
+			  if(a_const[i]==1){
+				  return i;
+			  }
+		  }
 	      return 0;
 	    }
 	   public static void main(String[] args) {
