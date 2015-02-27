@@ -22,7 +22,7 @@ public static void main(String[] args){
 	/*
 	 * Land-tree problem
 	 * */
-	Land l = new Land();
-	l.input();
+	/*Land l = new Land();
+	l.input();*/
 }
 }

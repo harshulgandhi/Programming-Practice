@@ -48,10 +48,10 @@ public class Land {
 			//System.out.println("i = "+i);
 			int h=0,v=0;
 			int x1=0,y1=0,x2=i,y2=i;
-			while(x2+v<N){
+			while(x2+v<N){		//Loop to traverse search window vertical (across different rows)
 				x1=x1+v;
 				x2=x2+v;
-				while(y2+h<N){
+				while(y2+h<N){	//Loop to traverse search window vertical (across different rows)
 					//System.out.println("Looking at square : "+x1+"-"+(y1+h)+"-"+x2+"-"+(y2+h));
 					if(!checkForTree(x1,y1+h,x2,y2+h)){
 						System.out.println("Land without tree found, size is: "+((y2+h)-(y1+h)));
