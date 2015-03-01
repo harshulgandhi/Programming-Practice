@@ -16,7 +16,7 @@ public class LonelyInteger {
 		  }
 	      return 0;
 	    }
-	   public static void main(String[] args) {
+	 /*  public static void main(String[] args) {
 	        Scanner in = new Scanner(System.in);
 	        int res;
 	        int _a_size = Integer.parseInt(in.nextLine());
@@ -32,6 +32,6 @@ public class LonelyInteger {
 	        
 	        res = lonelyinteger(_a);
 	        System.out.println(res);
-	    }	
+	    }*/	
 }
 
