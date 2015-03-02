@@ -27,7 +27,7 @@ public class Solution{
     
     public static long flipNum(long num){
     	
-    	return (~num) & 0x00000000ffffffff;
+    	return (~num) & 0x00000000ffffffffL;
     	/*
     	long converter_xor = (long) (Math.pow(2,32));
     	long temp = num ^ converter_xor;
