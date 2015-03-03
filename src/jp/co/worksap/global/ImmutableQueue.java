@@ -1,7 +1,6 @@
-//package jp.co.worksap.global;
+package jp.co.worksap.global;
 import java.util.*;
 import java.lang.IllegalArgumentException;
-import java.lang.Exception;
 
 /** * The Queue class represents 
  * an immutable first-in-first-out (FIFO)
@@ -17,13 +16,13 @@ public class ImmutableQueue<E>{
 	
 	public ImmutableQueue(){
 		//modify this constructor if necessary, but do not remove default constructor
-		immutableq = new LinkedList<E>(); 
+		immutableq = new LinkedList<E>(); 		//initializing linked list in default constructor
 	}
 	
 	public ImmutableQueue(LinkedList<E> immutableQ){
 		//modify this constructor if necessary, but do not remove default constructor
-		immutableq = new LinkedList<E>();
-		if(immutableQ != null){
+		immutableq = new LinkedList<E>();		//creating another list in parameterised constructor
+		if(immutableQ != null){					//used for creating a copy of existing queue
 			this.immutableq.addAll(immutableQ);
 		}
 	}
@@ -41,9 +40,9 @@ public class ImmutableQueue<E>{
 		if(e.equals(null)){
 			throw new IllegalArgumentException();
 		}
-		ImmutableQueue<E> q_copy = new ImmutableQueue<E>(this.immutableq);
-		q_copy.immutableq.add(e);
-		return q_copy;
+		ImmutableQueue<E> obj_copy = new ImmutableQueue<E>(this.immutableq);	//creating a new object by calling parametrised constructor
+		obj_copy.immutableq.add(e);												//added element to queue new object and returned the same
+		return obj_copy;
 	}
 	
 	/*
@@ -56,8 +55,8 @@ public class ImmutableQueue<E>{
 		if(immutableq.size()==0){
 			throw new NoSuchElementException();
 		}
-		ImmutableQueue<E> q_copy = new ImmutableQueue<E>(this.immutableq);
-		q_copy.immutableq.remove();
+		ImmutableQueue<E> q_copy = new ImmutableQueue<E>(this.immutableq);	//creating a new object by calling parametrised constructor
+		q_copy.immutableq.remove();											//added element to queue new object and returned the same
 		return q_copy;
 	}
 	
