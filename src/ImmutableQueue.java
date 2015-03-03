@@ -64,7 +64,21 @@ public class ImmutableQueue<E>{
 	
 	/*
 	 * Look at the object which is the head of this queue without removing it from the queue
+	 * If the queue is empty, throws java.util.NoSuchElementException
+	 * @return
+	 * @throws java.util.NoSuchElementException
 	 * */
+	public E peek(){
+		return this.immutableq.getFirst();
+	}
+	
+	/*
+	 * Return the number of objects in this queue
+	 * */
+	public int size(){
+		return this.immutableq.size();
+	}
+	
 	public void print(){
 		Iterator itr = this.immutableq.iterator();
 		while(itr.hasNext()){

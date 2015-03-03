@@ -33,12 +33,13 @@ public static void main(String[] args){
 	 * Immutable queue
 	 * */
 	ImmutableQueue<Integer> imqueue_obj = new ImmutableQueue<Integer>();
+	ImmutableQueue<Integer> imqueue_obj1 = imqueue_obj.enqueque(99);
+	ImmutableQueue<Integer> imqueue_obj2 = imqueue_obj.enqueque(1099);
 	imqueue_obj = imqueue_obj.enqueque(5);
 	imqueue_obj = imqueue_obj.enqueque(52);
 	imqueue_obj = imqueue_obj.enqueque(2);
 	imqueue_obj = imqueue_obj.enqueque(89);
-	ImmutableQueue<Integer> imqueue_obj1 = imqueue_obj.enqueque(99);
-	ImmutableQueue<Integer> imqueue_obj2 = imqueue_obj.enqueque(1099);
+	
 	imqueue_obj.print();
 	System.out.println();
 	imqueue_obj1.print();
@@ -51,5 +52,20 @@ public static void main(String[] args){
 	imqueue_obj1_r.print();
 	System.out.println("\nobj1 -- after removed");
 	imqueue_obj1.print();
+	System.out.println("\n\nPEEKS");
+	System.out.println("\nObj1 peek");
+	System.out.println(imqueue_obj1.peek());
+	System.out.println("\nObj2 peek");
+	System.out.println(imqueue_obj2.peek());
+	System.out.println("\nObj peek");
+	System.out.println(imqueue_obj.peek());
+	
+	System.out.println("\n\nPrinting sizes");
+	System.out.println("\nObj size");
+	System.out.println(imqueue_obj.size());
+	System.out.println("\nObj1 size");
+	System.out.println(imqueue_obj1.size());
+	System.out.println("\nObj2 size");
+	System.out.println(imqueue_obj2.size());
 }
 }
