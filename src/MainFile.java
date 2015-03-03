@@ -1,3 +1,7 @@
+import java.awt.List;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 import org.omg.CORBA.portable.ValueBase;
 
 
@@ -24,5 +28,22 @@ public static void main(String[] args){
 	 * */
 	/*Land l = new Land();
 	l.input();*/
+	
+	/*
+	 * Immutable queue
+	 * */
+	ImmutableQueue<Integer> imqueue_obj = new ImmutableQueue<Integer>();
+	imqueue_obj = imqueue_obj.enqueque(5);
+	imqueue_obj = imqueue_obj.enqueque(52);
+	imqueue_obj = imqueue_obj.enqueque(2);
+	imqueue_obj = imqueue_obj.enqueque(89);
+	
+	imqueue_obj.print();
+	System.out.println();
+//	imqueue_obj1.print();
+	System.out.println();
+//	imqueue_obj2.print();
+	
+	
 }
 }
