@@ -53,10 +53,18 @@ public class ImmutableQueue<E>{
 	 * @throws java.util.NoSuchElementException 
 	 * */
 	public ImmutableQueue<E> dequeue(){
-		
-		return null;
+		if(immutableq.size()==0){
+			throw new NoSuchElementException();
+		}
+		ImmutableQueue<E> q_copy = new ImmutableQueue<E>(this.immutableq);
+		q_copy.immutableq.remove();
+		return q_copy;
 	}
 	
+	
+	/*
+	 * Look at the object which is the head of this queue without removing it from the queue
+	 * */
 	public void print(){
 		Iterator itr = this.immutableq.iterator();
 		while(itr.hasNext()){
