@@ -75,8 +75,17 @@ public static void main(String[] args){
 	 * Calculating minimum abs difference of two numbers
 	 * in an int array
 	 * */
-	MinDifference md_obj = new MinDifference();
+	/*MinDifference md_obj = new MinDifference();
 	md_obj.input();
-	System.out.println("Minimum difference in this array is : "+md_obj.find_minimum_gap(md_obj.in_arr, md_obj.N));
+	System.out.println("Minimum difference in this array is : "+md_obj.find_minimum_gap(md_obj.in_arr, md_obj.N));*/
+	
+	/*
+	 * Sorting a 2D array and printing it in 
+	 * a spiral form
+	 * */
+	MatrixSortSpiral msp_obj = new MatrixSortSpiral();
+	msp_obj.input();
+	msp_obj.MatrixToArraySort();
+	
 }
 }
