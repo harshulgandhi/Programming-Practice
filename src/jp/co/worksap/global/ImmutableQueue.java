@@ -40,7 +40,7 @@ public class ImmutableQueue<E>{
 		if(e.equals(null)){
 			throw new IllegalArgumentException();
 		}
-		ImmutableQueue<E> obj_copy = new ImmutableQueue<E>(this.immutableq);	//creating a new object by calling parametrised constructor
+		ImmutableQueue<E> obj_copy = new ImmutableQueue<E>(this.immutableq);	//creating a new object by calling parameterized constructor
 		obj_copy.immutableq.add(e);												//added element to queue new object and returned the same
 		return obj_copy;
 	}
@@ -55,7 +55,7 @@ public class ImmutableQueue<E>{
 		if(immutableq.size()==0){
 			throw new NoSuchElementException();
 		}
-		ImmutableQueue<E> q_copy = new ImmutableQueue<E>(this.immutableq);	//creating a new object by calling parametrised constructor
+		ImmutableQueue<E> q_copy = new ImmutableQueue<E>(this.immutableq);	//creating a new object by calling parameterized constructor
 		q_copy.immutableq.remove();											//added element to queue new object and returned the same
 		return q_copy;
 	}
@@ -76,13 +76,6 @@ public class ImmutableQueue<E>{
 	 * */
 	public int size(){
 		return this.immutableq.size();
-	}
-	
-	public void print(){
-		Iterator itr = this.immutableq.iterator();
-		while(itr.hasNext()){
-			System.out.print(itr.next()+"-");
-		}
 	}
 	
 }

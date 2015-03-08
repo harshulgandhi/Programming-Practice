@@ -1,0 +1,26 @@
+import java.util.*;
+
+
+public class MinDifference {
+	public int in_arr[];
+	public int N;
+	public void input(){
+		System.out.println("Enter the number of elements for the array: ");
+		Scanner sn = new Scanner(System.in);
+		N = sn.nextInt();
+		in_arr = new int[N];
+		System.out.println("Enter "+N+" elements for the array");
+		for (int i =0;i<N;i++){
+			in_arr[i] = sn.nextInt();
+		}
+	}
+	
+	public int find_minimum_gap(int arr[],int n){
+		Arrays.sort(arr); 		//Quicksort method (static) defined in 'Arrays' class in java
+		int min = 10000;
+		for (int i = 0;i<n-1;i++){
+			if(min>Math.abs(arr[i]-arr[i+1])) min = Math.abs(arr[i]-arr[i+1]); 
+		}
+		return min;
+	}
+}
