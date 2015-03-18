@@ -8,9 +8,15 @@ public class ConvertPalindrome {
 	public static int makePalindrome(String quer){
 		int len = quer.length();
 		int steps = 0;
+		int count = 0;
 		for(int fr = 0,re=len-1;fr!=re;fr++,re--){
+			System.out.println("fr = "+fr+"; re = "+re);
 			int diff = (quer.charAt(fr) - quer.charAt(re));
-			if(diff == 0) continue;
+			if(diff == 0)
+			{
+				if(fr+1==re){ break;}
+				else continue;
+			}
 			else if (diff<0 || diff>0){	steps += Math.abs(diff); }
 			if(fr+1==re) break;  
 		}
