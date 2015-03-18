@@ -70,7 +70,7 @@ public class MatrixSortSpiral {
 	            m--;
 	        }
 	 
-	        /* Print the first column from the remaining columns */
+	        /* First column from the remaining columns */
 	        if (l < n){
 	            for (i = m-1; i >= k; --i){
 		            matSpiral[i][l] = arr[index];

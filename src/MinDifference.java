@@ -23,4 +23,14 @@ public class MinDifference {
 		}
 		return min;
 	}
+	
+	public static void main(String[] args){
+		/*
+		 * Calculating minimum abs difference of two numbers
+		 * in an int array
+		 * */
+		MinDifference md_obj = new MinDifference();
+		md_obj.input();
+		System.out.println("Minimum difference in this array is : "+md_obj.find_minimum_gap(md_obj.in_arr, md_obj.N));
+	}
 }
