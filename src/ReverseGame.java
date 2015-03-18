@@ -6,26 +6,6 @@ import java.util.regex.*;
 
 public class ReverseGame {
 	
-	public static int[] reverse(int arr[], int start){
-		int len = arr.length;
-		if(start == len-1){return arr;}
-		for(int fr = start,re = len-1;fr!=re;fr++,re--){
-			arr = swapElement(arr,fr,re);
-			if(fr+1 == re){break;}
-		}
-		return arr;
-	}
-	
-	
-	public static int[] swapElement(int arr[], int swp1, int swp2){
-		System.out.println("swp1 = "+swp1+"; swp2 "+swp2);
-		arr[swp1] = arr[swp1] + arr[swp2];
-		arr[swp2] = arr[swp1] - arr[swp2];
-		arr[swp1] = arr[swp1] - arr[swp2];
-		return arr;
-	}
-	
-	
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int numTest = sc.nextInt();
@@ -37,17 +17,16 @@ public class ReverseGame {
 		}
 		
 		for(int i = 0; i<numTest;i++){
-			int arr[] = new int[testCases[i][0]];
-			for (int j = 0;j<testCases[i][0];j++){
-				arr[j] = j;
+			int mid = 0;
+			int num = testCases[i][1];
+			int N = testCases[i][0];
+			if(num>= N/2){
+				int set = N-num-1;
+				System.out.println(set*2);
 			}
-			
-			for (int k = 0;k<testCases[i][0];k++){
-				arr = reverse(arr,k);
+			else if(num<N/2){
+				System.out.println(num*2+1);
 			}
-			
-			System.out.println(Arrays.binarySearch(arr,arr[testCases[i][1]]));
-			//System.out.println(arr[testCases[i][1]]);
 		}
 		
 	}
