@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CutSticks {
+public class CutSticksRecursive {
 	
 	ArrayList<Integer> sticks = new ArrayList<Integer>();
 	public int getMin(){
@@ -38,7 +38,7 @@ public class CutSticks {
 	}
 	
 	public static void main(String[] args) {
-		CutSticks cutObj = new CutSticks();
+		CutSticksRecursive cutObj = new CutSticksRecursive();
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
 //		ArrayList<Integer> sticks = new ArrayList<Integer>();
