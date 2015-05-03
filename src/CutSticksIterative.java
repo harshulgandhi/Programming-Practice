@@ -9,16 +9,16 @@ public class CutSticksIterative {
 			sticks.add(sc.nextInt());
 		}
 		Collections.sort(sticks);
-//		int k = 0;
 		while(sticks.size() != 0){
+			int min = sticks.get(0);
 			for (int m = 0;m<sticks.size();m++){
+				
 				if(sticks.get(m)!=0){
-					sticks.set(m, sticks.get(m)-sticks.get(0));
+					sticks.set(m, sticks.get(m)-min);
 				}
 			}
 			System.out.println(sticks.size());
 			sticks.removeAll(Collections.singleton(0));
-//			k++;
 		}
 	}
 }
