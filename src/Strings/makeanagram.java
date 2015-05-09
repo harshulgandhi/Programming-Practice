@@ -1,3 +1,4 @@
+package Strings;
 import java.util.*;
 public class makeanagram {
 	public static void main(String[] args) {
