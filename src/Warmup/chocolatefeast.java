@@ -11,7 +11,14 @@ public class chocolatefeast {
 			int C = sc.nextInt();
 			int M = sc.nextInt();
 			countChoco = N/C;
-			
+			int x = countChoco;
+			int r = 0;
+			while(x>=M){
+				r = x%M;
+				countChoco += x/M;
+				x = x/M + r;
+			}
+			System.out.println(countChoco);
 		}
 	}
 }
