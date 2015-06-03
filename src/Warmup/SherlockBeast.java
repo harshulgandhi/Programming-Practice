@@ -8,20 +8,20 @@ public class SherlockBeast {
 		int T = sc.nextInt();
 		int alpha = 15;
 		while(T-->0){
-			System.out.println("=========================");
+//			System.out.println("=========================");
 			int N = sc.nextInt();
 			int numOfFives = 0;
 			int numOfThrees = 0;
-			if(N%alpha != 0) numOfFives = N/alpha;
+			//if(N%alpha != 0) numOfFives = N/alpha;
 			int checkFor = N%alpha;
 			boolean xFound = false;
 			int y = 0,x = 0;
-			System.out.println("check for "+checkFor);
+//			System.out.println("check for "+checkFor);
 			while(y<= N/5){								//Now solving equation 3.x + 5.y = N
 				x = 0;
 				while(x<=N/3){
-					System.out.println("x = "+x);
-					System.out.println("y = "+y);
+//					System.out.println("x = "+x);
+//					System.out.println("y = "+y);
 					if(3*x + 5*y == N){
 						xFound = true;
 						break;
@@ -36,11 +36,12 @@ public class SherlockBeast {
 			}
 			else{
 				numOfFives += 3*x;
-				numOfThrees = 5*y;
-				System.out.println("numOfFives : "+numOfFives+" | "+"numOfThrees : "+numOfThrees);
+				numOfThrees += 5*y;
+//				System.out.println("numOfFives : "+numOfFives+" | "+"numOfThrees : "+numOfThrees);
 				String five = "5";
 				String three = "3";
-				System.out.println(new String(new char[numOfFives]).replace("\0", five)+new String(new char[numOfThrees]).replace("\0", three));
+//				System.out.println(new String(new char[numOfFives]));
+				System.out.println((new String(new char[numOfFives])).replace("\0", five)+(new String(new char[numOfThrees])).replace("\0", three));
 			}
 		}
 	}
