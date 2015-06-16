@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class ACMTeam {
 	
 	public static int getOR(String str1, String str2){
-		String res="";
 		int len = str1.length();
 		int count = 0;
 		for(int i = 0;i<len;i++){
@@ -24,7 +23,6 @@ public class ACMTeam {
 			inArr[i] = sc.next();
 		}
 		int maxInt = 0;
-		int numOfTopics = 0;
 		int numOfTeams = 0;
 		for (int i = 0;i<N;i++){
 			for (int j = i;j<N;j++){
