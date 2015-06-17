@@ -20,7 +20,15 @@ public class Encryption {
 			col = sqrt_c;
 		}
 		
-		System.out.println("row : "+row);
-		System.out.println("col : "+col);
+		int i = 0,j=0;
+		while(i < col){
+			j = i;
+			while(j<len){
+				System.out.print(inStr.charAt(j));
+				j += col;
+			}
+			i++;
+			System.out.print(" ");
+		}
 	}
 }
