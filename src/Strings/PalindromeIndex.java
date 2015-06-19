@@ -14,19 +14,24 @@ public class PalindromeIndex {
 			for( i = 0,j = len-1; (i+1!=j && i!=j &&  i<=j) ;i++,j--){
 				char i_char = inStr.charAt(i);
 				char j_char = inStr.charAt(j);
-				
+//				System.out.println("char at "+i+" : "+i_char);
+//				System.out.println("char at "+j+" : "+j_char);
 				if(i_char != j_char){
-					if(inStr.charAt(i+1) == j_char && i <= j){
+//					System.out.println("not equal");
+//					System.out.println("char at i+1 :"+inStr.charAt(i+1));
+//					System.out.println("char at j-1 :"+inStr.charAt(j-1));
+					if(inStr.charAt(i+1) == j_char && inStr.charAt(i+2) == inStr.charAt(j-1) && i <= j){
 //						System.out.println(j);
 //						alreadyFound = true;
 						removeIndex = i;
 						i++;
 						continue;
 					}
-					else if(i_char == inStr.charAt(j-1) && j >= i){
+					else if(i_char == inStr.charAt(j-1) && inStr.charAt(i+1) == inStr.charAt(j-2) && j >= i){
 //						System.out.println(i);
 //						alreadyFound = true;
 						removeIndex = j;
+//						System.out.println("removeIndex : "+removeIndex);
 						j--;
 						continue;
 					}
@@ -37,8 +42,8 @@ public class PalindromeIndex {
 					}
 				}
 			}
-			if(!alreadyFound && (i+1 == j || i == j) && removeIndex == -1) System.out.println(-1);
-			else if (!alreadyFound && (i+1 == j || i == j) && removeIndex != -1) System.out.println(removeIndex); 
+			if(!alreadyFound && (i+1 == j || i == j ) && removeIndex == -1) System.out.println(-1);
+			else if (!alreadyFound && (i+1 == j || i >= j) && removeIndex != -1) System.out.println(removeIndex); 
 		}
 	}
 }
@@ -47,27 +52,9 @@ public class PalindromeIndex {
 /*
  * 
  * 
-10
-quyjjdcgsvvsgcdjjyq
-hgygsvlfwcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcflvsgygh
-fgnfnidynhxebxxxfmxixhsruldhsaobhlcggchboashdlurshxixmfxxxbexhnydinfngf
-bsyhvwfuesumsehmytqioswvpcbxyolapfywdxeacyuruybhbwxjmrrmjxwbhbyuruycaexdwyfpaloyxbcpwsoiqtymhesmuseufwvhysb
-fvyqxqxynewuebtcuqdwyetyqqisappmunmnldmkttkmdlnmnumppasiqyteywdquctbeuwenyxqxqyvf
-mmbiefhflbeckaecprwfgmqlydfroxrblulpasumubqhhbvlqpixvvxipqlvbhqbumusaplulbrxorfdylqmgfwrpceakceblfhfeibmm
-tpqknkmbgasitnwqrqasvolmevkasccsakvemlosaqrqwntisagbmknkqpt
-lhrxvssvxrhl
-prcoitfiptvcxrvoalqmfpnqyhrubxspplrftomfehbbhefmotfrlppsxburhyqnpfmqlaorxcvtpiftiocrp
-kjowoemiduaaxasnqghxbxkiccikxbxhgqnsaxaaudimeowojk
-
 1
-8
-33
-23
-25
+hgygsvlfcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcwflvsgygh
+
 44
-20
--1
-14
--1
  * */
  
