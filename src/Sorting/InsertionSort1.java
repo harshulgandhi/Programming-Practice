@@ -8,6 +8,7 @@ public class InsertionSort1 {
 			System.out.print(arr[i]+" ");
 		}
 	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
