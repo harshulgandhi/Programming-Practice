@@ -4,20 +4,16 @@ import java.util.*;
 
 public class InsertionSortFindMistake {
 
-    public static void insertionSort(int[] A){
+	public static void insertionSort(int[] A){
         for(int i = 0; i < A.length; i++){
             int value = A[i];
-            int j = i+1;
-            
-            while(j < A.length && A[j] < value){
-            	System.out.println("value : "+value+" | A[j] : "+A[j]);
-            	A[i] = A[j];
-            	A[j] = value;
-//                A[j + 1] = A[j];
-//                j = j - 1;
-            	j += 1;
+            int j = i - 1;
+            while(j >= 0 && A[j] > value){
+            	
+                A[j + 1] = A[j];
+                j = j - 1;
             }
-//            A[j + 1] = value;
+            A[j + 1] = value;
         }
 
         printArray(A);
@@ -38,7 +34,5 @@ public class InsertionSortFindMistake {
         }
         insertionSort(ar);
     }
-
-
-   }
+}
 
