@@ -11,9 +11,33 @@ public class SherlockAndArray {
 				inpArr[i] = s.nextInt();
 			}
 			
-			for(int i=0,j=N-1;;i++,j--){
-				
+			int sumF = inpArr[0];
+			int sumR = inpArr[N-1];
+			boolean flag = false;
+			for(int i=0,j=N-1;(i<=j);){
+				if(N == 1){
+					flag = true;
+					break;
+				}
+				if(sumF == sumR){
+					if(i+1 == j-1){
+						flag = true;
+						break;
+					}
+					else{
+						sumR += inpArr[--j];
+						sumF += inpArr[++i];
+					}
+				}
+				else if(sumF > sumR){
+					sumR += inpArr[--j];
+				}
+				else if(sumR > sumF){
+					sumF += inpArr[++i];
+				}
 			}
+			if(flag) System.out.println("YES");
+			else System.out.println("NO");
 		}
 	}
 }
