@@ -1,4 +1,4 @@
-package Warmup;
+package Implementation;
 import java.util.Scanner;
 public class chocolatefeast {
 	public static void main(String[] args) {
