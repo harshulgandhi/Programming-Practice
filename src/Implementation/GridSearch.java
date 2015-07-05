@@ -14,8 +14,31 @@ public class GridSearch {
 		}
 	}
 
+	
+	public static boolean comparePatternMatchFound(char[][] Grid, char[][] Pattern, int r, int c,int ig, int jg){
+		for(int i = 0;i<r;i++){
+			for(int j = 0;j<c;j++){
+				if(Grid[i+ig][j+jg] != Pattern[i][j]){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
 	public static void checkPatternInGrid(char[][] Grid, int R, int C, char[][] Pattern, int r, int c){
-		
+		for(int i = 0;R-i>=r;i++){
+			for(int j = 0;C-j>=c;j++){
+//				System.out.println("Grid["+i+"]["+j+"] : "+Grid[i][j] +" | Pattern[0][0] : "+Pattern[0][0]);
+				if(Grid[i][j] == Pattern[0][0]){
+					if(comparePatternMatchFound(Grid, Pattern, r, c, i,j)){
+						System.out.println("YES");
+						return;
+					}
+				}
+			}
+		}
+		System.out.println("NO");
 	}
 
 	public static void main(String[] args) {
@@ -36,8 +59,9 @@ public class GridSearch {
 				Pattern[i]=sc.next().toCharArray();
 			}
 			
-			printMat(Grid);
-			printMat(Pattern);
+//			printMat(Grid);
+//			printMat(Pattern);
+			checkPatternInGrid(Grid, R, C, Pattern, r, c);
 		}
 	}
 }
