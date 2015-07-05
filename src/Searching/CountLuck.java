@@ -11,6 +11,7 @@ public class CountLuck {
 	int N = 0;
 	int M = 0;
 	Point startPoint = null;
+	int wandWaved = 0;
 	
 	public  void printMat(char[][] mat, int N, int M){
 		
@@ -23,47 +24,52 @@ public class CountLuck {
 	}
 	
 	public void dfsFindPath(Point node){
-		System.out.println("Curr node - i : "+(int)node.getX()+" j : "+(int)node.getY());
+//		System.out.println("Curr node - i : "+(int)node.getX()+" j : "+(int)node.getY());
 		this.visited.add(node);
 		int i = (int) node.getX();
 		int j = (int) node.getY();
 		if(i == this.N-1 && j == this.M-1) return;
-		if(this.inpMat[i][j] == '*'){
-			System.out.println("FOUND");
-			return;
-		}
-		
+		if(this.inpMat[i][j] == '*') return;
+//		if(this.inpMat[i][j] == '*') return;
+		int count = 0;
 		//up
 		if(i-1 >= 0 && (this.inpMat[i-1][j] != 'X') && !this.visited.contains(new Point(i-1,j))){
 			dfsFindPath(new Point(i-1,j));
+			count++;
 		}
 		
 		//right
-		else if(j+1 < this.M && (this.inpMat[i][j+1] != 'X') && !this.visited.contains(new Point(i,j+1))){
+		if(j+1 < this.M && (this.inpMat[i][j+1] != 'X') && !this.visited.contains(new Point(i,j+1))){
 			dfsFindPath(new Point(i,j+1));
+			count++;
 		}
 		
 		//down
-		else if(i+1 < this.N && (this.inpMat[i+1][j] != 'X') && !this.visited.contains(new Point(i+1,j))){
+		if(i+1 < this.N && (this.inpMat[i+1][j] != 'X') && !this.visited.contains(new Point(i+1,j))){
 			dfsFindPath(new Point(i+1,j));
-			System.out.println("After down point i :"+i+" j:"+j);
+			count++;
 		}
 		
 		//left
-		else if(j-1 >= 0 && (this.inpMat[i][j-1] != 'X') && !this.visited.contains(new Point(i,j-1))){
+		if(j-1 >= 0 && (this.inpMat[i][j-1] != 'X') && !this.visited.contains(new Point(i,j-1))){
 			dfsFindPath(new Point(i,j-1));
+			count++;
 		}
-		System.out.println(this.visited);
+		if(count > 1 ) {
+//			System.out.println("WAND WAVED");
+			this.wandWaved++;
+		}
 	}
 	
 	
 	
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		CountLuck obj = new CountLuck();
+		
 		int T = s.nextInt();
 		
 		while(T-->0){
+			CountLuck obj = new CountLuck();
 			obj.N = s.nextInt();
 			obj.M = s.nextInt();
 //			String[] inpRows = new String[N];
@@ -75,15 +81,12 @@ public class CountLuck {
 					obj.startPoint = new Point(i,new String(obj.inpMat[i]).indexOf('M'));
 				}
 			}
-			obj.printMat(obj.inpMat, obj.N, obj.M);
+//			obj.printMat(obj.inpMat, obj.N, obj.M);
 			
 			obj.dfsFindPath(obj.startPoint);
+			System.out.println("T : "+T+" obj.wandWaved : "+obj.wandWaved);
+			if(obj.wandWaved == s.nextInt()) System.out.println("Impressed");
+			else System.out.println("Oops!");
 		}
-		
-		
-		
 	}
-	
-	
-	
 }
