@@ -12,6 +12,7 @@ public class CountLuck {
 	int M = 0;
 	Point startPoint = null;
 	int wandWaved = 0;
+	boolean flag = false;
 	
 	public  void printMat(char[][] mat, int N, int M){
 		
@@ -25,12 +26,18 @@ public class CountLuck {
 	
 	public void dfsFindPath(Point node){
 //		System.out.println("Curr node - i : "+(int)node.getX()+" j : "+(int)node.getY());
+		
 		this.visited.add(node);
 		int i = (int) node.getX();
 		int j = (int) node.getY();
-		if(i == this.N-1 && j == this.M-1) return;
-		if(this.inpMat[i][j] == '*') return;
-//		if(this.inpMat[i][j] == '*') return;
+		if(i == this.N-1 && j == this.M-1){
+//			System.out.println("Returning from the first condition");
+			return;
+		}
+		if(this.inpMat[i][j] == '*'){
+			this.flag = true;
+			return;
+		}
 		int count = 0;
 		//up
 		if(i-1 >= 0 && (this.inpMat[i-1][j] != 'X') && !this.visited.contains(new Point(i-1,j))){
@@ -55,7 +62,7 @@ public class CountLuck {
 			dfsFindPath(new Point(i,j-1));
 			count++;
 		}
-		if(count > 1 ) {
+		if(count > 1 && this.flag) {
 //			System.out.println("WAND WAVED");
 			this.wandWaved++;
 		}
