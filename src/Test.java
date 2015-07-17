@@ -1,3 +1,4 @@
+import java.awt.Point;
 import java.util.ArrayList;
 
 
@@ -14,6 +15,17 @@ public static void main(String[] args) {
 	if(new String(c).contains("S") ){
 		System.out.println("YES");
 	}
+
+	String s1 = "Indian Rupee";
+	String s2 = "Indian Rupee";
+	
+	System.out.println(s1.equals(s2));
+	
+	Point p = new Point(10,2);
+	ArrayList<Point> l = new ArrayList<>();
+	l.add(p);
+	Point p2 = new Point(10,3);
+	System.out.println(l.contains(p2));
 	
 }
 }
