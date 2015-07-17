@@ -1,3 +1,5 @@
+package Datastructures.tree;
+
 public class Node{
 	int element;
 	Node left;
