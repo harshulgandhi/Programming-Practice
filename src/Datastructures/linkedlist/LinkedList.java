@@ -3,9 +3,9 @@
 
 public class LinkedList{
 
-	Node head;
+	public Node head;
 
-	LinkedList(){
+	public LinkedList(){
 		head = null;
 	}
 

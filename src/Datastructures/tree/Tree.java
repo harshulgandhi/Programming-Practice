@@ -12,13 +12,17 @@ public class Tree{
 
 			if(node.left == null){
 				node.left = new Node(val);
+				return;
 			}
-			else if(node.right == null){
+			else{
+				node = node.left;
+				insert(node, val);	
+			}
+			if(node.right == null){
 				node.right = new Node(val);
+				return;
 			}	
 			else{
-			node = node.left;
-			insert(node, val);
 			node = node.right;
 			insert(node, val);
 			}
@@ -54,7 +58,7 @@ public class Tree{
 		tree.insert(tree.root,10);
 		tree.insert(tree.root, 20);
 		tree.insert(tree.root, 5);
-		tree.inorderTraversal(tree.root);
+		
 		tree.insert(tree.root, 17);
 		tree.insert(tree.root, 12);
 		System.out.println("INORDER");
