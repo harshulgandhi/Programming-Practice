@@ -1,27 +1,34 @@
 package Datastructures.tree;
 
-public class Tree{
+public class BinarySearchTree{
 
 	Node root;
 
-	public Tree(int element){
+	public BinarySearchTree(int element){
 		root = new Node(element);
 	}
 
 	public void insert(Node node, int val){
 
+		if(val < node.element){
 			if(node.left == null){
 				node.left = new Node(val);
 			}
-			else if(node.right == null){
-				node.right = new Node(val);
-			}	
 			else{
 			node = node.left;
 			insert(node, val);
-			node = node.right;
-			insert(node, val);
 			}
+		}
+		else if(val >= node.element){
+			if(node.right == null){
+				node.right = new Node(val);
+			}
+			else{
+				node = node.right;
+				insert(node, val);
+			}
+		}
+		
 	}
 
 	public void inorderTraversal(Node node){
@@ -50,11 +57,10 @@ public class Tree{
 
 
 	public static void main(String[] args){
-		Tree tree = new Tree(15);
+		BinarySearchTree tree = new BinarySearchTree(15);
 		tree.insert(tree.root,10);
 		tree.insert(tree.root, 20);
 		tree.insert(tree.root, 5);
-		tree.inorderTraversal(tree.root);
 		tree.insert(tree.root, 17);
 		tree.insert(tree.root, 12);
 		System.out.println("INORDER");
