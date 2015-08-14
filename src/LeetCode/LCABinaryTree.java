@@ -7,27 +7,36 @@ import Datastructures.tree.Node;
 public class LCABinaryTree {
 	TreeNode root;
 
-	public LCABinaryTree(int element){
-		root = new TreeNode(element);
+	public LCABinaryTree(int val){
+		root = new TreeNode(val);
 	}
 	
 	
 	public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        printAncestors(root, p);
-		return root;
+		if(root == null){
+			return null;
+		}
+		if(root.val == p.val || root.val == q.val) return root;
+		
+		TreeNode left = lowestCommonAncestor(root.left, p, q);
+		TreeNode right = lowestCommonAncestor(root.right, p, q);
+		
+		if(left!=null && right!=null) return root;
+		
+        return (left!=null) ? left : right;
     }
 	
 	public void printAncestors(TreeNode root, TreeNode target){
-		
-		if((root.left!=null && root.left.element == target.element) || (root.right!=null && root.right.element == target.element)){
-//			System.out.println(root.element);
+		System.out.println("Traversing : "+root.val+" right : "+root.right.val+" left : "+root.left.val);
+		if((root.left!=null && root.left.val == target.val) || (root.right!=null && root.right.val == target.val)){
+			System.out.println("Found first parent "+ root.val);
 			return;
 		}
 		else {
 			if(root.left != null) printAncestors(root.left,target);
-			System.out.println(root.element);
+//			System.out.println(root.val);
 			if(root.right != null) printAncestors(root.right,target);
-			System.out.println(root.element);
+//			System.out.println(root.val);
 		}
 	}
 	public void insert(TreeNode node, int val){
@@ -50,7 +59,7 @@ public class LCABinaryTree {
 	public void inorderTraversal(TreeNode node){
 		if(node != null){
 			inorderTraversal(node.left);
-			System.out.print(node.element+" - ");
+			System.out.print(node.val+" - ");
 			inorderTraversal(node.right);
 		}
 	}
@@ -67,9 +76,7 @@ public class LCABinaryTree {
 		tree.insert(tree.root, 4);
 		System.out.println("INORDER");
 		tree.inorderTraversal(tree.root);
-		
-		tree.lowestCommonAncestor(tree.root, new TreeNode(6), new TreeNode(7));
+		System.out.println();
+		System.out.println(tree.lowestCommonAncestor(tree.root, new TreeNode(5), new TreeNode(7)).val);
 	}
-	
-	
 }

@@ -29,13 +29,25 @@ public class LinkedList{
 				System.out.print(temp.element+" --> ");
 				temp = temp.next;
 			}
+			System.out.print(temp.element+" --> ");
 			System.out.println();
 		}	
 		else System.out.println("List is empty");
 	}
 	
 	public void deleteNode(Node del){
-
+		Node curr = head;
+		if(curr == null) return;
+        if(curr.element == del.element){
+            head = head.next;
+            return;
+        }
+        while(curr.next != null){
+            if(curr.next.element == del.element){
+                curr.next = curr.next.next;
+            }
+            curr = curr.next;
+        }
 	}
 
 

@@ -2,12 +2,12 @@ package LeetCode;
 
 
 public class TreeNode {
-	int element;
+	int val;
 	TreeNode left;
 	TreeNode right;
 
-	TreeNode(int element){
-		this.element = element;
+	TreeNode(int val){
+		this.val = val;
 		this.left = null;
 		this.right = null;
 	}
