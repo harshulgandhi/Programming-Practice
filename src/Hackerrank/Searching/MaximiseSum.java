@@ -4,16 +4,16 @@ import java.util.Scanner;
 public class MaximiseSum {
 	
 	public static long maxModuloM(long[] arr, int N, long M, long _M){
-		while(_M -- >0){
-			for(int i = 0;i<N-1;i++){
-				long sum = arr[i];
-				for(int j = i+1;j<N;j++){
-					sum = sum + arr[j];
-					if(sum%M == _M) return _M;
-				}
+		long max = -1;
+		for(int i = 0;i<N;i++){
+			long sum = 0;
+			for(int j = i;j<N;j++){
+				sum = sum + arr[j];
+				long mod = sum%M;
+				if( mod > max) max = mod;
 			}
 		}
-		return -1;
+		return max;
 	}
 	
 	public static void main(String[] args) {
