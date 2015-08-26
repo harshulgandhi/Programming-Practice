@@ -5,13 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Travel {
 	private HashMap<Integer, List<Integer>> graph = new HashMap<>();
 	private List<Integer> festive = new ArrayList<>();
 	private List<Integer> visited = new ArrayList<>();
 	private int distance = 0;
 	private boolean found = false;
+	private int minDistance = 99999;
 	
 	private void insertBidirectionalEdge(int a, int b){
 		if(!graph.keySet().contains(a)){ graph.put(a,new ArrayList<>());}
@@ -28,52 +28,30 @@ public class Travel {
 			}
 			System.out.println();
 		}
-	
 	}
 	
 	private int nearestFestiveCityDistance(int t_city){
-		System.out.println("Calling for "+t_city);
+//		System.out.println("Calling for "+t_city);
+		int min = Integer.MAX_VALUE-1;
 		visited.add(t_city);
 		if(festive.contains(t_city)) {
-//			System.out.println("found festive city");
 			found = true;
-			return distance++;
+			return 0;
 		}
-		for(Integer key:graph.keySet()){
-			if(graph.get(key).contains(t_city) && !visited.contains(key)){
-//				distance+=1;
-				nearestFestiveCityDistance(key);
-				System.out.println("Coming out of : "+key+" distance : "+distance);
-			}//else if(visited.contains(key)) distance -= 1; 
-			if(found) {
-				System.out.println("breaking");
-				break;
-			}
+		for(Integer neigh:graph.get(t_city)){
+			if(!visited.contains(neigh)){
+				int distance = nearestFestiveCityDistance(neigh);
+				if(distance < min) min = distance;
+//				System.out.println("Coming out of : "+neigh+" distance : "+distance);
+			} 
 		}
-		/*if(festive.contains(t_city)){
-			System.out.println("found festive city");
-			found = true;
-			return distance;
-		}
-		else{
-			for(Integer eachnode : graph.get(t_city)){
-				if(eachnode != t_city){
-					nearestFestiveCityDistance(eachnode);
-					distance += 1;
-				}
-				if (found) break;
-			}
-		}*/
-		if(found) return distance++;
-		else return distance;
+		return min + 1;
 	}
 	
 	private void resetAttributes(){
-		distance = 0;
 		visited.clear();
-		found = false;
-		
 	}
+	
 	public static void main(String[] args) {
 		Travel obj = new Travel();
 		Scanner s = new Scanner(System.in);
