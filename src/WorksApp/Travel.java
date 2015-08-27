@@ -1,97 +1,95 @@
 package WorksApp;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Travel {
-	private HashMap<Integer, List<Integer>> graph = new HashMap<>();
-	private List<Integer> festive = new ArrayList<>();
-	private List<Integer> visited = new ArrayList<>();
-	private int distance = 0;
-	private boolean found = false;
-	private int minDistance = 99999;
+	private City[] graph = null;
 	
-	private void insertBidirectionalEdge(int a, int b){
-		if(!graph.keySet().contains(a)){ graph.put(a,new ArrayList<>());}
-		if(!graph.keySet().contains(b)){ graph.put(b,new ArrayList<>());}
-		if(!graph.get(a).contains(b)) graph.get(a).add(b);
-		if(!graph.get(b).contains(a)) graph.get(b).add(a);
+	
+	private void connectCities(int city_a, int city_b){
+		if(graph[city_a] == null) graph[city_a] = new City(city_a);
+		if(graph[city_b] == null) graph[city_b] = new City(city_b);
+		graph[city_a].addNeighbour(graph[city_b]);
+		graph[city_b].addNeighbour(graph[city_a]);
 	}
 	
+	/*
+	 * Function to print the graph
+	 * for verification purposes
+	 * */
 	private void printGraph(){
-		for(Integer eachkey:graph.keySet()){
-			System.out.print(eachkey+" ==> ");
-			for (Integer eachnode: graph.get(eachkey)){
-				System.out.print(eachnode+" - ");
+		for(City eachNode:graph){
+			System.out.print(eachNode.number+"("+eachNode.isFestive+") ==> ");
+			for(City each:eachNode.neighbours){
+				System.out.print(each+" - ");
 			}
 			System.out.println();
 		}
 	}
 	
-	private int nearestFestiveCityDistance(int t_city){
-//		System.out.println("Calling for "+t_city);
+	private int nearestFestiveCityDistance(City goingTo, City comingFrom){
 		int min = Integer.MAX_VALUE-1;
-		visited.add(t_city);
-		if(festive.contains(t_city)) {
-			found = true;
+		if(goingTo.isFestive) {
 			return 0;
 		}
-		for(Integer neigh:graph.get(t_city)){
-			if(!visited.contains(neigh)){
-				int distance = nearestFestiveCityDistance(neigh);
+		for(City neighbour : goingTo.neighbours){
+			if(neighbour != comingFrom){
+				int distance = nearestFestiveCityDistance(neighbour, goingTo);
 				if(distance < min) min = distance;
-//				System.out.println("Coming out of : "+neigh+" distance : "+distance);
 			} 
 		}
 		return min + 1;
 	}
 	
-	private void resetAttributes(){
-		visited.clear();
-	}
 	
 	public static void main(String[] args) {
 		Travel obj = new Travel();
 		Scanner s = new Scanner(System.in);
 		int N = s.nextInt();
 		int M = s.nextInt();
-		
+		obj.graph = new City[N+1];
 		for(int i = 0;i<N-1;i++){
-			obj.insertBidirectionalEdge(s.nextInt(), s.nextInt());
+			obj.connectCities(s.nextInt(), s.nextInt());
 		}
 //		obj.printGraph();
-		obj.festive.add(2);
+		obj.graph[1].isFestive = true;
+		
 		for(int j = 0;j<M;j++){
 			int q = s.nextInt(); 
 			if(q == 1){
-				obj.festive.add(s.nextInt());
+				int city = s.nextInt();
+				obj.graph[city].isFestive = true;
 			}
 			else{
-				System.out.println(obj.nearestFestiveCityDistance(s.nextInt()));
+				System.out.println(obj.nearestFestiveCityDistance(obj.graph[s.nextInt()], null));
 			}
-			obj.resetAttributes();
+		}
+	}
+	
+	private class City{
+		int number = 0;
+		Set<City> neighbours = new HashSet<>();
+		boolean isFestive  = false;
+		
+		City(int number){
+			this.number = number;
+		}
+		
+		public void addNeighbour(City city){
+			neighbours.add(city);
+		}
+		
+		@Override
+		public String toString(){
+			return number+" ";
+		}
+		
+		@Override
+		public int hashCode(){
+			return number;
 		}
 	}
 }
-/*
-5 2
-1 2
-1 3
-3 4
-3 5
-2 5
-2 3
 
-5 5
-1 2
-1 3
-3 4
-3 5
-2 5
-2 3
-1 4
-2 5
-2 4
- * */
