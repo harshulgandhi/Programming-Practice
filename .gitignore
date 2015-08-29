@@ -3,4 +3,5 @@ bin/
 input/
 *.class
 *test*
-
+*.zip
+maximisesuminputoutput
