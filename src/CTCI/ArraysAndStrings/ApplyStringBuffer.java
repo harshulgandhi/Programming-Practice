@@ -1,4 +1,4 @@
-
+package CTCI.ArraysAndStrings;
 public class ApplyStringBuffer{
 	public static void main(String[] args){
 		System.out.println("String buffer test");
