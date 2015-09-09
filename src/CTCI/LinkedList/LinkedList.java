@@ -1,4 +1,4 @@
-package CTCI.LinkedList;
+
 public class LinkedList{
     Node head = null;
     
@@ -18,6 +18,7 @@ public class LinkedList{
         Node head1 = head;
         while(head1.next != null){
             System.out.print(head1.val+"-");
+            head1 = head1.next;
         }
     }
     
