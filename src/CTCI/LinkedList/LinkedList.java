@@ -1,3 +1,4 @@
+package CTCI.LinkedList;
 public class LinkedList{
     Node head = null;
     

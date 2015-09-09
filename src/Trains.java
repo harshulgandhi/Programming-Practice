@@ -133,7 +133,7 @@ public class Trains {
 	 * Station inner class that hold all information about
 	 * any station
 	 */
-	private class Station{
+	private class Station{	
 		private char name;
 		private int initialDistance;
 		Map<Station, Integer> neighbourStations = new HashMap<>();

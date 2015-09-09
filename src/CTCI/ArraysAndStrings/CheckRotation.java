@@ -1,3 +1,4 @@
+package CTCI.ArraysAndStrings;
 import java.util.Scanner;
 
 public class CheckRotation{
