@@ -2,6 +2,10 @@
 public class LinkedList{
     Node head = null;
     
+    LinkedList(){
+        
+    }
+
     LinkedList(int val){
         head = new Node(val);
     }
