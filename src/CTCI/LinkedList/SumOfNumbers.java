@@ -3,22 +3,29 @@ public class SumOfNumbers{
 	static int count = 0;
 	static int number1 = 0 ;
 
-	public static int getReverseNumber(Node head){
-		count++;
-		if(head.next == null){
-			return head.val * 
-		}
-		return getReverseNumber(head.next);
-	}
 
-	public static void addNumbers(LinkedList num1, LinkedList num2, boolean isNumberReverse){
+	public static LinkedList addNumbers(LinkedList num1, LinkedList num2, boolean isNumberReverse){
+		LinkedList result = null;
+		int carry = 0;
 		if(isNumberReverse){
 			Node head1 = num1.head;
-			int number1 = getReverseNumber(head1);
+			Node head2 = num2.head;
+			while(head1.next != null && head2.next != null){
+				if(result == null){
+					result = new LinkedList((head1.val+head2.val+carry)%10);
+					carry = (head1.val+head2.val+carry)/10;
+					Node resHead = result.head;
+				}else{
+					result.addToRear(new Node((head1.val+head2.val+carry)%10));
+					carry = (head1.val+head2.val+carry)/10;
+				}
+				head1 = head1.next;
+				head2 = head2.next;
+			}
 		}
-		else{
 
-		}
+		return result;
+		
 	}
 
 	public static void main(String[] args){
@@ -28,5 +35,9 @@ public class SumOfNumbers{
 		LinkedList num2 = new LinkedList(5);
 		num2.addToRear(new Node(9));
 		num2.addToRear(new Node(2));
+		System.out.println("num1 = ");
+		LinkedList result = addNumbers(num1, num2, true);
+		result.printLinkedList();
+
 	}
 }

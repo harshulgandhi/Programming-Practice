@@ -73,6 +73,7 @@ public class LongestSkiing {
 		int maxDist = -1;
 		elevationMatrix[i][j].visited = true;
 		
+		//up
 		if ((i>0) && (elevationMatrix[i][j].value > elevationMatrix[i-1][j].value) ) {
 			skii(i-1, j);
 			paths.add(elevationMatrix[i-1][j]);
@@ -81,6 +82,7 @@ public class LongestSkiing {
 			}
 		}
 		
+		//down
 		if ((i<m-1) && (elevationMatrix[i][j].value > elevationMatrix[i+1][j].value) ) {
 			skii(i+1, j);
 			paths.add(elevationMatrix[i+1][j]);
@@ -89,6 +91,7 @@ public class LongestSkiing {
 			}
 		}
 		
+		//left
 		if ((j>0) && (elevationMatrix[i][j].value >elevationMatrix[i][j-1].value) ) {
 			skii(i, j-1);
 			paths.add(elevationMatrix[i][j-1]);
@@ -97,6 +100,7 @@ public class LongestSkiing {
 			}
 		}
 		
+		//right
 		if ((j<n-1) && (elevationMatrix[i][j].value > elevationMatrix[i][j+1].value) ) {
 			skii(i, j+1);
 			paths.add(elevationMatrix[i][j+1]);
