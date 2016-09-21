@@ -1,3 +1,4 @@
+package CTCI.LinkedList;
 import java.util.Scanner;
 
 public class DividePivot{

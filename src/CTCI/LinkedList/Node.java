@@ -1,4 +1,4 @@
-
+package CTCI.LinkedList;
 public class Node{
     int val = 0;
     Node next = null;

@@ -1,3 +1,4 @@
+package CTCI.LinkedList;
 public class SumOfNumbers{
 
 	static int count = 0;

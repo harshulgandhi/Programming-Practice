@@ -1,3 +1,5 @@
+package CTCI.StacksAndQueues;
+
 public class ThreeStacks{
 
 	int[] mainStack = null;

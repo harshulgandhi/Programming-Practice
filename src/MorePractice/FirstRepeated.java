@@ -1,3 +1,5 @@
+package MorePractice;
+
 import java.util.Map;
 import java.util.LinkedHashMap;
 

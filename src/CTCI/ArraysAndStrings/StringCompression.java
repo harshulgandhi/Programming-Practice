@@ -1,3 +1,5 @@
+package CTCI.ArraysAndStrings;
+
 import java.lang.StringBuffer;
 public class StringCompression{
 

@@ -1,3 +1,4 @@
+package CTCI.LinkedList;
 public class DeleteMiddle{
 
 	public static void removeMiddle(Node mid){

@@ -1,3 +1,5 @@
+package MorePractice;
+
 class InsertionSort
 {	
 	public static void swap(int[] arr, int i , int j){
@@ -18,7 +20,7 @@ class InsertionSort
 	public static void main (String[] args) throws java.lang.Exception
 	{
 		int[] arr  = {9,8,7,6,5,1,2,3};
-		Insertion.sort(arr);
+		InsertionSort.sort(arr);
 		for(int num : arr){
 			System.out.print(num+" ");
 		}

@@ -1,3 +1,5 @@
+package CTCI.General;
+
 public class LongestPalindromeII{
 
 	public String getPalindrome(String str, int i,int j){

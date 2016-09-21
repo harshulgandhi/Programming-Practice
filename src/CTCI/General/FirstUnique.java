@@ -1,3 +1,5 @@
+package CTCI.General;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 

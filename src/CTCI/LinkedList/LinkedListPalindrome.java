@@ -1,4 +1,4 @@
-
+package CTCI.LinkedList;
 public class LinkedListPalindrome{
 
 	Node head = null;

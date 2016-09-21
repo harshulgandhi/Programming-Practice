@@ -1,3 +1,4 @@
+package MorePractice;
 import java.lang.StringBuffer;
 public class LongestPalindrome{
 
