@@ -16,13 +16,18 @@ class StringPermutation
 	}
 	
 	public static void permutate(char[] c, int start, int end){
+		System.out.println("Permutating "+new String(c)+" between "+(start+1)+" and "+end);
 		if(start == end-1){
+			System.out.println("Permutation found "+new String(c));
 			permList.add(new String(c));
 			return;
 		}
 		for(int i = start;i<end;i++){
+//			System.out.println("Swapping "+start+" with "+i+" in "+new String(c));
 			swap(c, start, i);
+//			System.out.println("Permutating "+new String(c)+" between "+(start+1)+" and "+end);
 			permutate(c, start+1, end);
+//			System.out.println("Swapping "+start+" with "+i+" in "+new String(c));
 			swap(c, start, i);
 		}
 	}
