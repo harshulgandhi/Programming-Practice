@@ -22,13 +22,11 @@ public class CleanList {
 	}
 	
 	private Node cleanList(Node head, int num) {
-//		System.out.println("Head num "+head.num);
-		while (head.num > num) {
+		while (head != null && head.num > num) {
 			head = head.next;
 		}
-//		System.out.println("Head num "+head.num);
 		Node curr = head;
-		while (curr.next != null) {
+		while (curr != null && curr.next != null) {
 			while (curr.next.num > num) {
 				curr.next = curr.next.next;
 			}
@@ -53,9 +51,9 @@ public class CleanList {
 			curr = curr.next;
 		}
 		cl.printLinkedList(head);
-		Node head2 = cl.cleanList(head, s.nextInt());
+//		Node head2 = cl.cleanList(head, s.nextInt());
 		cl.cleanList(head, s.nextInt());
 //		System.out.println("Head val "+head.num);
-		cl.printLinkedList(head2);
+		cl.printLinkedList(head);
 	}
 }
