@@ -9,7 +9,6 @@ public class BinarySearchTree{
 	}
 
 	public void insert(Node node, int val){
-
 		if(val < node.element){
 			if(node.left == null){
 				node.left = new Node(val);
@@ -28,7 +27,6 @@ public class BinarySearchTree{
 				insert(node, val);
 			}
 		}
-		
 	}
 
 	public void inorderTraversal(Node node){
