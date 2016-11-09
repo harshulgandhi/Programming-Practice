@@ -1,4 +1,4 @@
-package Hackerrank.Implementation;
+package MasterCard;
 
 import java.util.Scanner;
 
