@@ -2,7 +2,9 @@ package CTCIv2;
 
 public class MyStringBuilder {
 	private MyArrayList<String> list;
-	
+	public MyStringBuilder() {
+		list = new MyArrayList<>();
+	}
 	MyStringBuilder(String initialStr) {
 		list = new MyArrayList<>();
 		list.add(initialStr);
