@@ -8,6 +8,7 @@ import java.util.Set;
 /**
  * Find pairs of numbers in an array with 
  * sum as K
+ * O(N)
  */
 public class FindPair {
 	
@@ -42,7 +43,7 @@ public class FindPair {
 	
 	public static void main(String[] args) {
 		FindPair fp = new FindPair();
-		fp.findPair(new int[]{3, 4, 2,-2, 5,0,1,7}, 5);
+		fp.findPair(new int[]{3, 4, 2,-2,0, 5,0,1,7}, 5);
 	}
 	
 }
