@@ -1,5 +1,6 @@
 package com.practice.after2017.amazon;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,9 +50,17 @@ public class A {
 			return allSimilarMovies;
 		}
 		
-		PriorityQueue<Movie> topRatedMovies = new PriorityQueue<Movie>(
-				(o1,o2) -> Float.compare(o1.getRating(), o2.getRating())
-				);
+//		PriorityQueue<Movie> topRatedMovies = new PriorityQueue<Movie>(
+//				(o1,o2) -> Float.compare(o1.getRating(), o2.getRating())
+//				);
+		Comparator<Movie> c = new Comparator<Movie>(){
+				@Override
+				public int compare(Movie o1, Movie o2){
+					return Float.compare(o1.getId(), o2.getId()); 
+				}
+		};
+		PriorityQueue<Movie> topRatedMovies = new PriorityQueue<Movie>(c);
+		
 		for(Movie eachConnectedM : allSimilarMovies) {
 			topRatedMovies.add(eachConnectedM);
 		}

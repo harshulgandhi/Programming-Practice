@@ -1,3 +1,5 @@
+package com.practice.after2017.algorithm.sorting;
+
 public class MergeSort {
 
 	public MergeSort() {}

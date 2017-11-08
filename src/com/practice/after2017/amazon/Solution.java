@@ -50,11 +50,26 @@ public class Solution {
 	   }
 	   
 	   public static void main(String[] args) {
-			Movie movie1 = new Movie(1, 1.2f);
-			Movie movie2 = new Movie(2, 2.4f);
+//			Movie movie1 = new Movie(1, 1.2f);
+//			Movie movie2 = new Movie(2, 2.4f);
+//			Movie movie3 = new Movie(3, 2.4f);
+//			Movie movie4 = new Movie(4, 2.4f);
+//			Movie movie5 = new Movie(5, 8.8f);
+//			movie1.addSimilarMovie(movie2);
+//			movie1.addSimilarMovie(movie3);
+//			movie2.addSimilarMovie(movie1);
+//			movie2.addSimilarMovie(movie4);
+//			movie3.addSimilarMovie(movie1);
+//			movie3.addSimilarMovie(movie4);
+//			movie4.addSimilarMovie(movie2);
+//			movie4.addSimilarMovie(movie3);
+//			movie5.addSimilarMovie(movie3);
+//			movie3.addSimilarMovie(movie5);
+			
+		   Movie movie1 = new Movie(1, 1.2f);
+			Movie movie2 = new Movie(2, 3.6f);
 			Movie movie3 = new Movie(3, 2.4f);
-			Movie movie4 = new Movie(4, 2.4f);
-			Movie movie5 = new Movie(5, 8.8f);
+			Movie movie4 = new Movie(4, 4.8f);
 			movie1.addSimilarMovie(movie2);
 			movie1.addSimilarMovie(movie3);
 			movie2.addSimilarMovie(movie1);
@@ -63,15 +78,12 @@ public class Solution {
 			movie3.addSimilarMovie(movie4);
 			movie4.addSimilarMovie(movie2);
 			movie4.addSimilarMovie(movie3);
-			movie5.addSimilarMovie(movie3);
-			movie3.addSimilarMovie(movie5);
-			
 			Solution s = new Solution();
 //			Set<Movie> allMovies = a.getAllMovies(movie1);
 //			for(Movie each:allMovies) {
 //				System.out.println(each.getMovieId() + " | "+each.getRating());
 //			}
-			Set<Movie> recommendations = s.getMovieRecommendations(movie5, 2);
+			Set<Movie> recommendations = s.getMovieRecommendations(movie1, 2);
 			for(Movie m : recommendations) {
 				System.out.println(m.getId() + " | " + m.getRating());
 			}
