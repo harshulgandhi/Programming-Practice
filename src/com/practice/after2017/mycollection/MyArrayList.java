@@ -1,4 +1,4 @@
-package com.practice.after2017.java;
+package com.practice.after2017.mycollection;
 
 
 public class MyArrayList<E> {

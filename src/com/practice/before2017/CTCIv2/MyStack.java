@@ -8,28 +8,28 @@ public class MyStack<T> {
 			top = new MyStackNode<T>(val, null);
 			return;
 		}
-		MyStackNode newNode = new MyStackNode(val, top);
+		MyStackNode<T> newNode = new MyStackNode<T>(val, top);
 		top = newNode;
 	}
 	
-	public MyStackNode pop(){
+	public MyStackNode<T> pop(){
 		if(top == null) throw new MyStackException("Top is null. Stack is empty.");
-		MyStackNode poppedNode = top;
+		MyStackNode<T> poppedNode = top;
 		top = top.next;
 		return poppedNode;
 	}
 	
-	public MyStackNode peek() {
+	public MyStackNode<T> peek() {
 		if(top == null) throw new MyStackException();
-		MyStackNode peeked = top;
+		MyStackNode<T> peeked = top;
 		return peeked;
 	}
 	
 	private class MyStackNode<T> {
 		private T val;
-		private MyStackNode next;
+		private MyStackNode<T> next;
 		
-		public MyStackNode(T val, MyStackNode next){
+		public MyStackNode(T val, MyStackNode<T> next){
 			this.val = val;
 			this.next = next;
 		}
