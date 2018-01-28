@@ -8,11 +8,21 @@ import java.util.Scanner;
 public class BombermanGame {
 	static String[] bomberMan(int n, String[] grid) {
 		String[] arr = new String[grid.length];
+		
+		if (n == 1) {
+			arr = grid;
+			return arr;
+		} else if(n == 2) {
+//			arr = grid
+		}
         // Complete this function
 		
 		return arr;
     }
 	
+	static void installBombs(char[][] grid ) {
+		
+	}
 	static void bombBlast(char[][] grid, int bombI, int bombJ) {
 		int R = grid.length;
 		int C = grid[0].length;
@@ -30,6 +40,12 @@ public class BombermanGame {
 			grid[bombI][bombJ + 1] = '.';
 		}
 	}
+	
+	static void printGrid(char[][] grid) {
+		for(int i = 0; i<grid.length; i++) {
+			System.out.println(new String(grid[i]));
+		}
+	}
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -45,11 +61,11 @@ public class BombermanGame {
             System.out.print(result[i] + (i != result.length - 1 ? "\n" : ""));
         }
         System.out.println("");
-
+        
 
         in.close();
     	
-    	char[][] t = new char[2][3];
-    	System.out.println(t.length+", "+t[0].length);
+//    	char[][] t = new char[2][3];
+//    	System.out.println(t.length+", "+t[0].length);
     }
 }
