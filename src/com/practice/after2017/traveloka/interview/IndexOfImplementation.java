@@ -23,6 +23,7 @@ public class IndexOfImplementation {
 	            }
 	        }
 	    }
+		return -1;
 	}
 
 //	indexOf("abcdef", "de") -> 3
@@ -78,24 +79,19 @@ public class IndexOfImplementation {
 	    if(a.length() < b.length()) return false;
 	    
 	    String[] partitioned = b.split(""+WILDCARD);
-	    if(partitioned[0] == "" && indexOf(a,partitioned[1]) != -1) {
-	       return true;
-	    } else {
-	       return false;
+	    if(partitioned[0] == "") {
+	    	return indexOf(a, partitioned[1]) != 1; 
 	    }
-	    if(partitioned[1] == "" && indexOf(a,partitioned[0]) != -1) {
-	       return true;
-	    } else {
-	       return false;
+	    
+	    if(partitioned[1] == "") {
+	    	return indexOf(a, partitioned[0]) != 1; 
 	    }
 	    int firstIdx = indexOf(a, partitioned[0]);
-	    int secondIdx = maxIndexOf(a, partitioned[1]);
-	    if(firstIdx) <  secondIdx) 
-	       && (firstIdx + partitioned[0].length() < secondIdx) {
+	    int secondIdx = a.lastIndexOf(partitioned[1]);
+	    if((firstIdx <  secondIdx) && (firstIdx + partitioned[0].length() < secondIdx)) {
 	       return true;
 	    }
 	    return false;
-	    
 	}
 
 
