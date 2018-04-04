@@ -33,6 +33,5 @@ public class DivideTwoNumbers {
 		DivideTwoNumbers div = new DivideTwoNumbers();
 		// System.out.println(div.divide(-2147483648, -1));
 		Long l = (long) (-1 * Integer.MIN_VALUE);
-		System.out.println(l);
 	}
 }

@@ -1,5 +1,8 @@
 package com.practice.after2017.leetcode.algorithms;
 
+/**
+ * https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+ */
 public class RemoveNthNode {
 	public ListNode removeNthFromEnd(ListNode head, int n) {
 		ListNode head1 = head;
