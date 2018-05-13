@@ -1,4 +1,4 @@
-package com.practice.after2017.leetcode.algorithms;
+package com.practice.after2017.leetcode.algorithms.dp;
 
 /**
  * https://leetcode.com/problems/minimum-path-sum/description/

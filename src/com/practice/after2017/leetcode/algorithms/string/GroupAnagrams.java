@@ -1,4 +1,4 @@
-package com.practice.after2017.leetcode.algorithms;
+package com.practice.after2017.leetcode.algorithms.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +31,7 @@ public class GroupAnagrams {
 			result.add(freqMap.get(eachKey));
 		}
 		return result;
+
 	}
 
 	private String freqString(String s) {

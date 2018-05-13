@@ -1,4 +1,4 @@
-package com.practice.after2017.leetcode.algorithms;
+package com.practice.after2017.leetcode.algorithms.dp;
 
 public class LargestPlusSign {
 	public int orderOfLargestPlusSign(int N, int[][] mines) {

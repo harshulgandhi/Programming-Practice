@@ -1,4 +1,4 @@
-package com.practice.after2017.leetcode.algorithms;
+package com.practice.after2017.leetcode.algorithms.numbers;
 
 /**
  * https://leetcode.com/problems/divide-two-integers

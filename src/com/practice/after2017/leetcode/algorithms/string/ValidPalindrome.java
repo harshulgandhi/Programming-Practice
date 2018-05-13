@@ -1,4 +1,4 @@
-package com.practice.after2017.leetcode.algorithms;
+package com.practice.after2017.leetcode.algorithms.string;
 
 /**
  * https://leetcode.com/problems/valid-palindrome/description/

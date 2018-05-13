@@ -1,21 +1,35 @@
 package com.practice.before2017.CTCI.LinkedList;
-public class LinkedListPalindrome{
+
+public class LinkedListPalindrome {
 
 	Node head = null;
 	boolean isPalindrome = true;
-	public void traverseRecursively(Node rhead){
-		if(rhead == null){
+
+	public void traverseRecursively(Node rhead) {
+		if (rhead == null) {
 			return;
-		}else{
+		} else {
 			traverseRecursively(rhead.next);
-			if(head.val != rhead.val){
+			if (head.val != rhead.val) {
 				isPalindrome = false;
 			}
 			head = head.next;
 		}
 	}
 
-	public static void main(String[] args){
+	public int lPalin(Node A) {
+		if (A == null) {
+			return 1;
+		}
+		int res = lPalin(A.next);
+		if (head.val != A.val) {
+			return 0;
+		}
+		head = head.next;
+		return res;
+	}
+
+	public static void main(String[] args) {
 		LinkedList ll = new LinkedList(0);
 		ll.addToRear(new Node(1));
 		ll.addToRear(new Node(2));
@@ -27,8 +41,11 @@ public class LinkedListPalindrome{
 		obj.head = ll.head;
 		Node head1 = ll.head;
 
-		obj.traverseRecursively(head1);
-		if(obj.isPalindrome) System.out.println("Is Palindrome");
-		else System.out.println("Is not Palindrome");
+		// obj.traverseRecursively(head1);
+		System.out.println(obj.lPalin(head1));
+		if (obj.isPalindrome)
+			System.out.println("Is Palindrome");
+		else
+			System.out.println("Is not Palindrome");
 	}
 }

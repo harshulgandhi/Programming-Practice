@@ -1,4 +1,4 @@
-package com.practice.after2017.leetcode.algorithms;
+package com.practice.after2017.leetcode.algorithms.string;
 
 import java.util.Collections;
 import java.util.HashSet;
